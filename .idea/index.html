@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sangrobotten</title>
+    <script src="index.js" type="module"></script>
+</head>
+<body>
+<h1>Velkommen til festsang-robotten!</h1>
+<h2>Med festsang-robotten er du lynhurtigt klar med en festsang, <br>
+    der passer lige til det arrangement og den/de person(er), som den er tiltænkt! <br>
+    Hvis du udfylder nedenstående felter, så får du en sang, der passer perfekt til dine ønsker <br>
+    hurtigere end du kan nå at sige "Velkommen i den grønne lund!"</h2>
+<div>
+    <form id="form" style="max-width: 900px;">
+        <div class="row">
+            <div class="col-md-2 ">
+                <label for="melody-input">Melodi: </label>
+            </div>
+            <div class="col-md-3">
+                <input id="melody-input" required>
+            </div>
+            <div class="col-md-2 ">
+                <label for="verses-input">Antal vers: </label>
+            </div>
+            <div class="col-md-5">
+                <input id="verses-input" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 ">
+                <label for="cause-input">Sangens anledning: </label>
+            </div>
+            <div class="col-md-3">
+                <input id="cause-input" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 ">
+                <label for="name-input">Navn(e) på de(n) person(er) sangen er til: </label>
+            </div>
+            <div class="col-md-3">
+                <input id="name-input" required>
+            </div>
+            <div class="col-md-2 ">
+                <label for="adjectives-input">Ord der beskriver personen/personerne</label>
+            </div>
+            <div class="col-md-5">
+                <input id="adjectives-input" required>
+            </div>
+        </div>
+        <div class=" row">
+            <div class="col-md-2 ">
+                <label for="mood-input">Den ønskede stemning i teksten (eksempelvis sjov eller kærlig): </label>
+            </div>
+            <div class="col-md-10">
+                <input id="mood-input" required>
+            </div>
+        </div>
+        <div class="row" style="margin-top:2em;">
+            <button id="btn-write-song" class="btn btn-dark">Write song</button>
+        </div>
+    </form>
+</div>
+<p id="song">
+
+</p>
+</body>
+</html>
