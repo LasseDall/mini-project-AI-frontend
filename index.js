@@ -26,7 +26,7 @@ async function writeSong() {
     }
 
     try {
-        const response = await fetch("http://localhost:8080/api/song/write", options).then(res => res.json())
+        const response = await fetch("https://mini-project-ai.azurewebsites.net/api/song/write", options).then(res => res.json())
         document.getElementById("song-box").innerText = response.text;
     }catch (err) {
         console.log(err)
