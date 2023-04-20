@@ -1,11 +1,9 @@
 
-document.getElementById("btn-write-song").onclick = function() {
-    writeSong();
-};
+document.getElementById("btn-write-song").onclick = writeSong;
 
-document.getElementById("btn-change-song").onclick = function() {
-    changeSong();
-}
+
+document.getElementById("btn-change-song").onclick = changeSong;
+
 
 async function changeSong() {
 
@@ -26,7 +24,7 @@ async function changeSong() {
     }
 
     try {
-        const response = await fetch("http://localhost:8080/api/song/change", options).then(res => res.json())
+        const response = await fetch("https://mini-project-ai.azurewebsites.net/api/song/change", options).then(res => res.json())
         document.getElementById("melody-box").innerText = "Melodi: " + response.melody;
         document.getElementById("song-box").innerText = response.text;
         localStorage.setItem("song", response.text)
@@ -61,7 +59,7 @@ async function writeSong() {
     }
 
     try {
-        const response = await fetch("http://localhost:8080/api/song/write", options).then(res => res.json())
+        const response = await fetch("https://mini-project-ai.azurewebsites.net/api/song/write", options).then(res => res.json())
         document.getElementById("melody-box").innerText = "Melodi: " + response.melody;
         document.getElementById("song-box").innerText = response.text;
         localStorage.setItem("song", response.text)
