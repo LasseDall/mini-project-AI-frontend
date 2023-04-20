@@ -27,7 +27,9 @@ async function writeSong() {
 
     try {
         const response = await fetch("https://mini-project-ai.azurewebsites.net/api/song/write", options).then(res => res.json())
+        document.getElementById(" melody-box").innerText = response.melody;
         document.getElementById("song-box").innerText = response.text;
+        localStorage.setItem("song", response)
     }catch (err) {
         console.log(err)
     }
