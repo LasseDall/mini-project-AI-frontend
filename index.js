@@ -1,5 +1,7 @@
 
-document.getElementById("btn-write-song").onclick = writeSong()
+document.getElementById("btn-write-song").onclick = function() {
+    writeSong();
+};
 
 async function writeSong() {
 
@@ -27,7 +29,7 @@ async function writeSong() {
 
     try {
         const response = await fetch("https://mini-project-ai.azurewebsites.net/api/song/write", options).then(res => res.json())
-        document.getElementById(" melody-box").innerText = response.melody;
+        document.getElementById("melody-box").innerText = "Melodi: " + response.melody;
         document.getElementById("song-box").innerText = response.text;
         localStorage.setItem("song", response)
     }catch (err) {
