@@ -1,4 +1,6 @@
-document.getElementById("btn-write-song").onclick = writeSong
+import {handleHttpErrors, sanitizeStringWithTableRows} from "../../utils.js";
+
+document.getElementById("btn-write-song").onclick = writeSong()
 
 async function writeSong() {
 
@@ -24,19 +26,10 @@ async function writeSong() {
         body: JSON.stringify(songDTO)
     }
 
-    await fetch("http://localhost:8080/api/song/", options)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log(data)
-            localStorage.setItem(text, JSON.stringify(data.text));
-            document.getElementById("song").innerText = JSON.stringify(data);
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-        });
+    try {
+        const response = await fetch("http://localhost:8080/api/song/write", options).then(res => res.json())
+        document.getElementById("song-box").innerText = response.text;
+    }catch (err) {
+        console.log(err)
+    }
 }
