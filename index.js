@@ -1,4 +1,3 @@
-import {handleHttpErrors, sanitizeStringWithTableRows} from "../../utils.js";
 
 document.getElementById("btn-write-song").onclick = writeSong()
 
